@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\View;
 */
 
 
-Route::get('/', 'App\Http\Controllers\InicioController@index');
+Route::resource('/', 'App\Http\Controllers\PersonaController');
 
 
 
