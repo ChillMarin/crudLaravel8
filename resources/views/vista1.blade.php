@@ -1,5 +1,5 @@
 <html>
     <body>
-        <h1>Hola mundo</h1>
+        <h1>El nombre es: {{$nombre}} y apellido {{$apellido}}</h1>
     </body>
 </html>
