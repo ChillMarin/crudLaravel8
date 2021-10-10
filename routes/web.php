@@ -14,11 +14,18 @@ use Illuminate\Support\Facades\View;
 */
 
 
-Route::resource('/', 'App\Http\Controllers\PersonaController');
+Route::get('/', function () {
+    return view('auth.login');
+});
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
+    return view('dash.dash');
+})->name('dash');
 
+Route::get('/dash/crud', function () {
+    return view('crud.index');
+});
 
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/dash/create', function () {
+    return view('crud.create');
+});
