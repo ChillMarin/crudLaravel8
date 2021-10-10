@@ -22,12 +22,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
     return view('dash.dash');
 })->name('dash');
 
-Route::resource('articulos','app\Http\Controllers\ArticuloController');
+Route::resource('/dash/crud','App\Http\Controllers\ArticuloController');
 
+/*
 Route::get('/dash/crud', function () {
     return view('crud.index');
 });
-
+*/
 Route::get('/dash/create', function () {
     return view('crud.create');
 });
