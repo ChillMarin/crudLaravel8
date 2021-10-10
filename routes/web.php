@@ -22,6 +22,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
     return view('dash.dash');
 })->name('dash');
 
+Route::resource('articulos','app\Http\Controllers\ArticuloController');
+
 Route::get('/dash/crud', function () {
     return view('crud.index');
 });
