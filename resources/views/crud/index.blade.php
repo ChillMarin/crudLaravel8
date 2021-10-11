@@ -30,7 +30,7 @@ echo $persona;
             <td>{{$articulo->descripcion}}</td>
             <td>{{$articulo->cantidad}}</td>
             <td>{{$articulo->precio}}</td>
-            <td>
+            <td>/*
                 <form action="{{ route ('crud.destroy', $articulo->id)}}" method="POST">
                 <a class="btn btn-info" href="../dash/crud/{{$articulo->id}}/edit">Editar</a>
                 @csrf
@@ -42,6 +42,11 @@ echo $persona;
         @endforeach
     </tbody>
 </table>
+
+<hr>
+<hr>
+
+
 
 
 @endsection

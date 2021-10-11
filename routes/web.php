@@ -28,6 +28,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
 
 Route::resource('/dash/crud','App\Http\Controllers\ArticuloController');
 
+
+Route::middleware(['auth:sanctum', 'verified'])->resource('/dash/mascotas', 'App\Http\Controllers\MascotaController');
+/*
+Route::resource('/dash/mascotas','App\Http\Controllers\MascotaController');
+*/
+
 /*
 Route::get('/dash/crud', function () {
     return view('crud.index');
