@@ -15,7 +15,7 @@ class ArticuloController extends Controller
     public function index()
     {
         $articulos = Articulo::all();
-        return view('crud.index')->with('articulos',$articulos);//especifino la caprte que seria (crud) y index el archivo / y lo de width
+        return view('crud.index')->with('articulos',$articulos);//especifino la caprte que seria (crud) y index el archivo / y lo de width articulos seria la varible para la vista y $articulos la info que va a tener esa variable
     }
 
     /**
@@ -56,7 +56,7 @@ class ArticuloController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -67,7 +67,8 @@ class ArticuloController extends Controller
      */
     public function edit($id)
     {
-        //
+        $articulo = Articulo::find($id);
+        return view('crud.edit')->with('articulo',$articulo);
     }
 
     /**
@@ -79,7 +80,16 @@ class ArticuloController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $articulo = Articulo::find($id);
+
+        $articulo->codigo= $request->get('codigo');
+        $articulo->descripcion= $request->get('descripcion');
+        $articulo->cantidad= $request->get('cantidad');
+        $articulo->precio= $request->get('precio');
+
+        $articulo->save();
+
+        return redirect('dash/crud');
     }
 
     /**
@@ -90,6 +100,9 @@ class ArticuloController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $articulo = Articulo::find($id);
+
+        $articulo->delete();
+        return redirect('dash/crud');
     }
 }

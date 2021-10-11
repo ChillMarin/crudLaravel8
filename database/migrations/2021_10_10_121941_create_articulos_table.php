@@ -20,7 +20,7 @@ class CreateArticulosTable extends Migration
             $table->integer('cantidad');
             $table->decimal('precio',8,2);//8 enteros y 2 decimales
             $table->timestamps();
-        });
+        }); 
     }
 
     /**

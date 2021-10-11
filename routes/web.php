@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/jojo', function () {
+    return view('vista1');
+});
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
     return view('dash.dash');
 })->name('dash');

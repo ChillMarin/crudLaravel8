@@ -1,6 +1,13 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
+
+@php
+use App\Models\Persona;
+$persona = Persona::all();
+echo $persona;
+@endphp
+
 <h1>Vista Index good</h1>
 <a class="btn btn-outline-primary" href="crud/create" role="button">Crear </a>
 
@@ -12,7 +19,7 @@
             <th scope="col">Descripcion</th>
             <th scope="col">Cantidad</th>
             <th scope="col">Precio</th>
-            <th scope="col">Acciones</th>
+            <th scope="col">Acciones</th> 
         </tr>
     </thead>
     <tbody>
@@ -24,11 +31,17 @@
             <td>{{$articulo->cantidad}}</td>
             <td>{{$articulo->precio}}</td>
             <td>
-                <a class="btn btn-info" href="">Editar</a>
-                <button class="btn btn-danger">Borrar</button>
+                <form action="{{ route ('crud.destroy', $articulo->id)}}" method="POST">
+                <a class="btn btn-info" href="../dash/crud/{{$articulo->id}}/edit">Editar</a>
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Borrar</button>
+                </form>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
+
+
 @endsection
