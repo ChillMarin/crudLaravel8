@@ -1,5 +1,10 @@
 @extends('layouts.plantillabase')
 
+@section('css')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+
+@endsection
+
 @section('contenido')
 
 @php
@@ -11,7 +16,7 @@ echo $persona;
 <h1>Vista Index good</h1>
 <a class="btn btn-outline-primary" href="crud/create" role="button">Crear </a>
 
-<table class="table table-dark table-striped mt-4">
+<table id="articulos" class="table table-dark table-striped mt-4">
     <thead>
         <tr>
             <th scope="col">ID</th>
@@ -43,5 +48,21 @@ echo $persona;
     </tbody>
 </table>
 
+@section('js')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+<script>
+
+$(document).ready( function () {
+    $('#articulos').DataTable({
+        "lengthMenu":[[5,10,50,-1], [5,10,50,"ALL"]]
+     });
+} );
+
+
+</script>
+@endsection
 
 @endsection
