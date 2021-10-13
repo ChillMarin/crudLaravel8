@@ -19,6 +19,8 @@
 
 @section('content')
     <p>Welcome to this beautiful admin panel.</p>
+    <h1>Vista Index good</h1>
+<a class="btn btn-outline-primary" href="crud/create" role="button">Crear </a>
 @stop
 
 @section('css')
